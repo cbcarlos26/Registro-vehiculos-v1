@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% block content %}
+{% if user.is_authenticated %}
+    <center>
+        <h1>Editar vehiculo</h1>
+        <hr/>
+        <div style="padding:3px">
+            <form method="POST" enctype="multipart/form-data">
+                <table cellpadding="2px">
+                    {{formaVehiculo}}
+                </table>
+                <br/>
+                <button type="submit" style="padding:5px; width:100px; background-color:blue; color:white"
+                        class="btn btn-outline-secondary">
+                    Enviar
+                </button>
+            {% csrf_token %}
+            </form>
+        </div>
+    </center>
+{% else %}
+    <h4>Por favor ingresar a la aplicacion en: <a href="http://127.0.0.1:8000" style="text-decoration:none">
+        Iniciar sesion</a></h4>
+{% endif %}
+{% endblock %}

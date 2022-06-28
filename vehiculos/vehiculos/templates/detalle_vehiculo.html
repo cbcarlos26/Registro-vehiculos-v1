@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% block content %}
+{% if user.is_authenticated %}
+    <center>
+    <h2>Vehiculo {{vehiculo.placa}}</h2>
+    {% if vehiculo.imagen %}
+        <img src="{{vehiculo.imagen.url}}" alt="Vehiculo" align="center" width="500">
+    {% endif %}
+    <p align="center">
+        Nombre de propietario: {{vehiculo.nombre_p}} {{vehiculo.apellido_p}},
+        Identificacion: {{vehiculo.cedula_p}}, Contacto: {{vehiculo.contacto_p}}
+    </p>
+    <p align="center">Marca: {{vehiculo.marca}}, Modelo: {{vehiculo.modelo}}, Color: {{vehiculo.color}}</p>
+    <p align="center">Origen: {{vehiculo.origen}}, Fecha de ingreso: {{vehiculo.fecha_in}}</p>
+    </center>
+{% else %}
+    <h4>Por favor ingresar a la aplicacion en: <a href="http://127.0.0.1:8000" style="text-decoration:none">
+        Iniciar sesion</a></h4>
+{% endif %}
+{% endblock %}
