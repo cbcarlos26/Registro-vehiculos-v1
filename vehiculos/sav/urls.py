@@ -14,7 +14,6 @@ urlpatterns = [
     path('inicio/ver_detalle/<int:id>', ver_detalle),
     path('inicio/editar_vehiculo/<int:id>', editar_vehiculo, name='editar'),
     path('vehiculos_buscados', vehiculos_buscados, name='vehiculos_buscados'),
-    path(r'^$', include('django.contrib.auth.urls')),
-    path(r'^$', include('usuarios.urls')),
-]+static(settings.MEDIA_URL,
-         document_root=settings.MEDIA_ROOT)+static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+    path('', include('django.contrib.auth.urls')),
+    path('', include('usuarios.urls')),
+]+static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

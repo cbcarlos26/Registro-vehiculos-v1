@@ -25,7 +25,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-b_&z#_xce36xdt=d44you9^l-eydd#ifx&ihzz9!_jlxf=0e&k'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
@@ -80,7 +80,7 @@ WSGI_APPLICATION = 'sav.wsgi.application'
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
 
 #The connection with the database postgrSQL is created here
-'''DATABASES = {
+DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'vehiculos_db',
@@ -89,12 +89,12 @@ WSGI_APPLICATION = 'sav.wsgi.application'
         'HOST': '127.0.0.1',
         'PORT': '5432'
     }
-}'''
-DATABASES = {
+}
+'''DATABASES = {
     'default': dj_database_url.config(
         default=config('DATABASE_URL')
     )
-}
+}'''
 
 # Password validation
 # https://docs.djangoproject.com/en/4.0/ref/settings/#auth-password-validators
@@ -139,4 +139,3 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'photos')
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
